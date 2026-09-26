@@ -69,3 +69,35 @@ Now you can enter the container and run PI like you would do locally:
 docker exec -it CONTAINER_NAME bash
 pi
 ```
+
+## PI MCP
+
+If you want to use Laravel Boost, install the PI MCP extension and Laravel Boost.
+
+Install Laravel Boost into the container like explained on the Laravel website.
+
+Install the MCP extension for PI:
+
+```
+pi install npm:pi-mcp-adapter
+```
+
+This will install the extension in your mounted ~/.pi/agent_docker directory, so it is kept when removing the container.
+
+The .mcp.json file (in the root of your application):
+
+```
+{
+  "mcpServers": {
+    "laravel-boost": {
+      "command": "php",
+      "args": [
+        "artisan",
+        "boost:mcp"
+      ]
+    }
+  }
+}
+```
+
+Now PI should see the new MCP server. Make sure to connect to it first and then the tools should be visible.
