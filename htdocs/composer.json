@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.5",
         "laravel/ai": "^1.0.0",
-        "laravel/framework": "^13.17",
+        "laravel/framework": "^13.33",
         "laravel/tinker": "^3.0"
     },
     "require-dev": {

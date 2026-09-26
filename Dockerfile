@@ -19,7 +19,6 @@ RUN apt-get update \
         > /etc/apt/sources.list.d/nodesource.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        composer \
         nginx \
         nodejs \
         php8.5-bcmath \
@@ -34,6 +33,9 @@ RUN apt-get update \
         php8.5-sqlite3 \
         php8.5-xml \
         php8.5-zip \
+    && curl -fsSL https://getcomposer.org/download/2.10.3/composer.phar \
+        -o /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer \
     && npm install --global --ignore-scripts @earendil-works/pi-coding-agent \
     && rm -rf /var/lib/apt/lists/*
 
