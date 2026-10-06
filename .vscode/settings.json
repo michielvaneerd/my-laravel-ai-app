@@ -1,0 +1,10 @@
+{
+    "intelephense.phpdoc.classTemplate": {
+        "summary": "$1",
+        "tags": [
+            "@package ${1:$SYMBOL_NAMESPACE}"
+        ]
+    },
+    "php.validate.executablePath": "/Users/michielve/bin/php-docker-app-name",
+    "intelephense.environment.phpVersion": "8.3.6"
+}
