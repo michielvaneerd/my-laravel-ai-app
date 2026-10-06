@@ -9,10 +9,13 @@ That's why PI is running inside the Laravel container in this example.
 
 The [Dockerfile](./Dockerfile) is to build the image:
 
+Use --no-cache is you want to build the image later, for example if you want to have a newer PI instance.
+
 ```
-docker build -t laravel-dev .
+docker build --no-cache -t laravel-dev .
 ```
 
+Create a directory on your host `~/.pi/agent_docker` - this will store the PI settings from the container.
 
 Run it like this:
 
@@ -20,10 +23,14 @@ Run it like this:
 docker run --rm -it -p 8080:80 -v "$PWD":/var/www/html laravel-dev
 ```
 
+Or use the docker-compose.yml file:
+
 The [docker-compose.yml](./docker-compose.yml) file is used to mount the volumes and link the services. Some parts:
 
 - `image: laravel-dev` - Depends on the image built above.
 - Mount the PI volume with `- ~/.pi/agent_docker:/root/.pi/agent` - see below.
+
+Run it with `docker compose up -d`
 
 ## PI
 
@@ -70,21 +77,11 @@ docker exec -it CONTAINER_NAME bash
 pi
 ```
 
-## PI MCP
-
-If you want to use Laravel Boost, install the PI MCP extension and Laravel Boost.
+## PI MCP with Laravel Boost
 
 Install Laravel Boost into the container like explained on the Laravel website.
 
-Install the MCP extension for PI:
-
-```
-pi install npm:pi-mcp-adapter
-```
-
-This will install the extension in your mounted ~/.pi/agent_docker directory, so it is kept when removing the container.
-
-The .mcp.json file (in the root of your application):
+Create the `~/.pi/agent_docker/mcp.json` file with:
 
 ```
 {

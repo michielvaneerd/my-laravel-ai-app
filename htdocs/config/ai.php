@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'default' => 'mistral',
-    'default_for_images' => 'mistral',
-    'default_for_audio' => 'mistral',
-    'default_for_transcription' => 'mistral',
-    'default_for_embeddings' => 'mistral',
+    'default' => 'ollama',
+    'default_for_images' => 'ollama',
+    'default_for_audio' => 'ollama',
+    'default_for_transcription' => 'ollama',
+    'default_for_embeddings' => 'ollama',
     'default_for_reranking' => 'cohere',
 
     /*
