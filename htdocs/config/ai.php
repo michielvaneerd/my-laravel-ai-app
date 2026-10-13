@@ -89,9 +89,18 @@ return [
             'key' => env('COHERE_API_KEY'),
         ],
 
+        // https://api-docs.deepseek.com/quick_start/pricing/
+        // Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays.
+        // All other hours are off-peak, including weekends and Chinese public holidays in full.
+        // So for Europe/Amsterdam: 01:00 - 04:00 = 03:00 - 07:00 uur and 06:00 - 10:00 = 09:00 - 13:00 uur.
         'deepseek' => [
             'driver' => 'deepseek',
             'key' => env('DEEPSEEK_API_KEY'),
+            'models' => [
+                'text' => [
+                    'default' => env('DEEPSEEK_DEFAULT_TEXT_MODEL'),
+                ],
+            ],
         ],
 
         'eleven' => [
