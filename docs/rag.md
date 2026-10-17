@@ -2,8 +2,8 @@
 
 ## How it works in this app
 
-- Artisan command `documents-convert-chunk-embed-store` to convert a document to Markdown, chunk it and embed and store the chunks into the database.
-- Artisan command `rag-programmed-chat` and `rag-tool-chat` to make the chat conversation and see the difference.
+- Artisan command `app:prepare-document {--path=} {--title=}` to convert, chunk, embed and store documents.
+- Artisan command `rag-chat {--type}` to chat on the documents (`--type` can be `programmed` or `tool`).
 
 ## Options
 
